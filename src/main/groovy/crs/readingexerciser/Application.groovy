@@ -6,19 +6,21 @@ import crs.readingexerciser.text.speech.TextToSpeechService
 import javazoom.jl.player.Player
 
 import javax.swing.*
+import java.awt.*
 import java.awt.event.ActionEvent
 import java.awt.event.ActionListener
 
 class Application {
     static void main(String[] args) {
-        TextService textService = new TextService("src/main/resources/Peterke.txt")
+        TextService textService = new TextService("src/main/resources/Misi.txt")
         def word = textService.randomWord()
 
         JFrame f = new JFrame("Button Example")
         final JTextField tf = new JTextField()
-        tf.setBounds(50, 50, 150, 20)
-        JButton b = new JButton("Click Here")
-        b.setBounds(50, 100, 95, 30)
+        tf.setFont(new Font("Serif", Font.PLAIN, 22))
+        tf.setBounds(50, 50, 350, 50)
+        JButton b = new JButton("Olvass")
+        b.setBounds(50, 120, 95, 30)
         b.addActionListener(new ActionListener() {
             void actionPerformed(ActionEvent e) {
                 ByteString speech = TextToSpeechService.say(word)
