@@ -19,9 +19,9 @@ class Application {
         JLabel jLabel = new JLabel()
         jLabel.setFont(new Font("Serif", Font.PLAIN, 42))
         jLabel.text = word
-        jLabel.setBounds(50, 50, 600, 50)
+        jLabel.setBounds(50, 20, 600, 50)
         JButton readButton = new JButton("Olvass")
-        readButton.setBounds(50, 120, 95, 30)
+        readButton.setBounds(50, 90, 95, 30)
         readButton.addActionListener(new ActionListener() {
             void actionPerformed(ActionEvent e) {
                 ByteString speech = TextToSpeechService.say(word)
@@ -32,7 +32,7 @@ class Application {
             }
         })
         JButton nextButton = new JButton("Következő")
-        nextButton.setBounds(200, 120, 95, 30)
+        nextButton.setBounds(200, 90, 95, 30)
         nextButton.addActionListener(new ActionListener() {
             void actionPerformed(ActionEvent e) {
                 word = textService.randomWord()
@@ -42,7 +42,7 @@ class Application {
         f.add(readButton)
         f.add(jLabel)
         f.add(nextButton)
-        f.setSize(600, 200)
+        f.setSize(600, 180)
         f.setLayout(null)
         f.setLocationRelativeTo(null)
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

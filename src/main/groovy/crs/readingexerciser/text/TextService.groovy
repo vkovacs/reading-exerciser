@@ -14,6 +14,7 @@ class TextService {
                             .replaceAll(/-/, "")
                             .replaceAll(/:/, "")
                             .replaceAll(/!/, "")
+                            .replaceAll(/;/, "")
                             .replaceAll(/\?/, "")
                             .replaceAll(/\./, "")
                 }
