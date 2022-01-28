@@ -16,27 +16,26 @@ class Application {
         def word = textService.randomWord()
 
         JFrame f = new JFrame("Button Example")
-        final JTextField tf = new JTextField()
-        tf.setFont(new Font("Serif", Font.PLAIN, 22))
-        tf.setBounds(50, 50, 350, 50)
-        JButton b = new JButton("Olvass")
-        b.setBounds(50, 120, 95, 30)
-        b.addActionListener(new ActionListener() {
+        JLabel jLabel = new JLabel()
+        jLabel.setFont(new Font("Serif", Font.PLAIN, 22))
+        jLabel.text = word
+        jLabel.setBounds(50, 50, 350, 50)
+        JButton button = new JButton("Olvass")
+        button.setBounds(50, 120, 95, 30)
+        button.addActionListener(new ActionListener() {
             void actionPerformed(ActionEvent e) {
                 ByteString speech = TextToSpeechService.say(word)
                 def stream = new ByteArrayInputStream(speech.toByteArray())
                 Player playMP3 = new Player(stream)
                 playMP3.play()
                 word = textService.randomWord()
-                tf.setText(word)
+                jLabel.setText(word)
             }
         })
-        f.add(b)
-        f.add(tf)
+        f.add(button)
+        f.add(jLabel)
         f.setSize(400, 400)
         f.setLayout(null)
         f.setVisible(true)
-
-        tf.text = word
     }
 }
