@@ -16,6 +16,6 @@ class TextService {
 
     String randomWord() {
         int index = random.nextInt(words.size())
-        return words[index]
+        return words[index].toUpperCase()
     }
 }

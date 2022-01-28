@@ -17,7 +17,7 @@ class Application {
 
         JFrame f = new JFrame("Button Example")
         JLabel jLabel = new JLabel()
-        jLabel.setFont(new Font("Serif", Font.PLAIN, 22))
+        jLabel.setFont(new Font("Serif", Font.PLAIN, 42))
         jLabel.text = word
         jLabel.setBounds(50, 50, 350, 50)
         JButton readButton = new JButton("Olvass")
