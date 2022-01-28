@@ -15,11 +15,11 @@ class Application {
         TextService textService = new TextService("src/main/resources/Misi.txt")
         def word = textService.randomWord()
 
-        JFrame f = new JFrame("Button Example")
+        JFrame f = new JFrame("Olvasás Gyakoroltató")
         JLabel jLabel = new JLabel()
         jLabel.setFont(new Font("Serif", Font.PLAIN, 42))
         jLabel.text = word
-        jLabel.setBounds(50, 50, 350, 50)
+        jLabel.setBounds(50, 50, 600, 50)
         JButton readButton = new JButton("Olvass")
         readButton.setBounds(50, 120, 95, 30)
         readButton.addActionListener(new ActionListener() {
@@ -42,8 +42,10 @@ class Application {
         f.add(readButton)
         f.add(jLabel)
         f.add(nextButton)
-        f.setSize(400, 400)
+        f.setSize(600, 200)
         f.setLayout(null)
+        f.setLocationRelativeTo(null)
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setVisible(true)
     }
 }

@@ -10,7 +10,12 @@ class TextService {
                 .split()
                 .toUnique()
                 .each {
-                    words << it
+                    words << it.replaceAll(/,/,"")
+                            .replaceAll(/-/, "")
+                            .replaceAll(/:/, "")
+                            .replaceAll(/!/, "")
+                            .replaceAll(/\?/, "")
+                            .replaceAll(/\./, "")
                 }
     }
 
