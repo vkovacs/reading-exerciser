@@ -20,20 +20,28 @@ class Application {
         jLabel.setFont(new Font("Serif", Font.PLAIN, 22))
         jLabel.text = word
         jLabel.setBounds(50, 50, 350, 50)
-        JButton button = new JButton("Olvass")
-        button.setBounds(50, 120, 95, 30)
-        button.addActionListener(new ActionListener() {
+        JButton readButton = new JButton("Olvass")
+        readButton.setBounds(50, 120, 95, 30)
+        readButton.addActionListener(new ActionListener() {
             void actionPerformed(ActionEvent e) {
                 ByteString speech = TextToSpeechService.say(word)
                 def stream = new ByteArrayInputStream(speech.toByteArray())
                 Player playMP3 = new Player(stream)
                 playMP3.play()
+
+            }
+        })
+        JButton nextButton = new JButton("Következő")
+        nextButton.setBounds(200, 120, 95, 30)
+        nextButton.addActionListener(new ActionListener() {
+            void actionPerformed(ActionEvent e) {
                 word = textService.randomWord()
                 jLabel.setText(word)
             }
         })
-        f.add(button)
+        f.add(readButton)
         f.add(jLabel)
+        f.add(nextButton)
         f.setSize(400, 400)
         f.setLayout(null)
         f.setVisible(true)
