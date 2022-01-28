@@ -6,7 +6,7 @@ class TextService {
 
 
     TextService(String textFile) {
-        new File(textFile).readLines().join()
+        new File(textFile).readLines().join(" ")
                 .split()
                 .toUnique()
                 .each {
@@ -22,6 +22,6 @@ class TextService {
 
     String randomWord() {
         int index = random.nextInt(words.size())
-        return words[index].toUpperCase()
+        return words[index]
     }
 }

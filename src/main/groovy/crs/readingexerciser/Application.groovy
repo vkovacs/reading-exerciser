@@ -7,6 +7,8 @@ import javazoom.jl.player.Player
 
 import javax.swing.*
 import java.awt.*
+import java.awt.event.MouseAdapter
+import java.awt.event.MouseEvent
 
 class Application {
     static TextService textService = new TextService("src/main/resources/Misi.txt")
@@ -20,6 +22,14 @@ class Application {
         jLabel.setFont(new Font("Serif", Font.PLAIN, 42))
         jLabel.text = word
         jLabel.setBounds(50, 20, 600, 50)
+        jLabel.addMouseListener(new MouseAdapter()
+        {
+             void mouseClicked(MouseEvent e)
+            {
+                jLabel.text = jLabel.text == word.toUpperCase() ? word.toLowerCase() : word.toUpperCase()
+
+            }
+        })
         JButton readButton = new JButton("Olvass")
         readButton.setBounds(50, 90, 95, 30)
         readButton.addActionListener((e) -> {
