@@ -47,14 +47,16 @@ class Application {
         })
 
 
-        JTextField sayTextField = new JTextField()
-        sayTextField.setBounds(50,130,180,30)
+        JTextArea sayTextArea = new JTextArea()
+        sayTextArea.setBounds(50,130,400,300)
+        sayTextArea.setFont(new Font("Serif", Font.PLAIN, 18))
+        sayTextArea.setWrapStyleWord(true)
 
         JButton sayButton = new JButton("Kimond")
-        sayButton.setBounds(250, 130, 95, 30)
+        sayButton.setBounds(450, 130, 95, 30)
         sayButton.addActionListener((e) -> {
-            if (!sayTextField.text.isEmpty()) {
-                ByteString speech = TextToSpeechService.say(sayTextField.text)
+            if (!sayTextArea.text.isEmpty()) {
+                ByteString speech = TextToSpeechService.say(sayTextArea.text)
                 def stream = new ByteArrayInputStream(speech.toByteArray())
                 Player playMP3 = new Player(stream)
                 playMP3.play()
@@ -64,9 +66,9 @@ class Application {
         frame.add(readButton)
         frame.add(jLabel)
         frame.add(nextButton)
-        frame.add(sayTextField)
+        frame.add(sayTextArea)
         frame.add(sayButton)
-        frame.setSize(600, 250)
+        frame.setSize(600, 500)
         frame.setLayout(null)
         frame.setLocationRelativeTo(null)
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
