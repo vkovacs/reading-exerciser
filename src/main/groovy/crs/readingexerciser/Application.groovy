@@ -46,10 +46,27 @@ class Application {
             jLabel.setText(word)
         })
 
+
+        JTextField sayTextField = new JTextField()
+        sayTextField.setBounds(50,130,180,30)
+
+        JButton sayButton = new JButton("Kimond")
+        sayButton.setBounds(250, 130, 95, 30)
+        sayButton.addActionListener((e) -> {
+            if (!sayTextField.text.isEmpty()) {
+                ByteString speech = TextToSpeechService.say(sayTextField.text)
+                def stream = new ByteArrayInputStream(speech.toByteArray())
+                Player playMP3 = new Player(stream)
+                playMP3.play()
+            }
+        })
+
         frame.add(readButton)
         frame.add(jLabel)
         frame.add(nextButton)
-        frame.setSize(600, 180)
+        frame.add(sayTextField)
+        frame.add(sayButton)
+        frame.setSize(600, 250)
         frame.setLayout(null)
         frame.setLocationRelativeTo(null)
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
