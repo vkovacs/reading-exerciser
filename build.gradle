@@ -15,9 +15,8 @@ application {
 }
 
 dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:3.0.5'
+    implementation 'org.apache.groovy:groovy:4.0.0'
     implementation 'javazoom:jlayer:1.0.1'
-
 
     implementation platform('com.google.cloud:libraries-bom:24.2.0')
     implementation 'com.google.cloud:google-cloud-texttospeech'
